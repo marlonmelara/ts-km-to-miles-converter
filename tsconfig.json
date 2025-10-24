@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es6", // JS moderno compatible con la mayoría de navegadores
+    "module": "es6", // Módulos compatibles con <script type="module">
+    "rootDir": "./src", // Carpeta con tu TS
+    "outDir": "./dist", // Carpeta donde se generará el JS
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true // Útil si usas imports modernos
+  }
+}
