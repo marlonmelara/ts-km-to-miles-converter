@@ -14,7 +14,7 @@ function convertKMtoMI(km: number): string {
 
 // ✅ Esperamos a que el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('fileForm') as HTMLFormElement;
+  const form = document.getElementById('conversionForm') as HTMLFormElement;
 
   form.addEventListener('submit', function (e) {
     // ✅ Prevenimos el comportamiento por defecto del formulario

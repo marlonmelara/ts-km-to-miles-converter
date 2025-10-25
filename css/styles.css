@@ -1,10 +1,12 @@
+/* GLOBAL RESET */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-body {
+/* BLOCK: body */
+.body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -16,12 +18,13 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-header {
+/* BLOCK: header */
+.header {
   margin-bottom: 1rem;
   text-align: center;
 }
 
-h1 {
+.header__h1 {
   font-size: 2.5rem;
   font-weight: 700;
   color: white;
@@ -29,7 +32,8 @@ h1 {
   text-shadow: 0 2px 10px rgb(0 0 0 / 20%);
 }
 
-main {
+/* BLOCK: main */
+.main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -46,20 +50,49 @@ main {
   backdrop-filter: blur(10px);
 }
 
-form {
+.main__small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 95%);
+  text-align: center;
+}
+
+.main__result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80px;
+  padding: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  background: rgb(255 255 255 / 10%);
+  border: 2px solid rgb(255 255 255 / 20%);
+  border-radius: 12px;
+  animation: fade-in 0.5s ease;
+}
+
+.main__result:empty {
+  display: none;
+}
+
+/* BLOCK: form */
+.form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
 }
 
-.input-group {
+.form__div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-label {
+.form__label {
   font-size: 0.875rem;
   font-weight: 600;
   color: white;
@@ -67,7 +100,7 @@ label {
   letter-spacing: 1px;
 }
 
-input {
+.form__input {
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1.5rem;
@@ -81,24 +114,29 @@ input {
   transition: all 0.3s ease;
 }
 
-input:focus {
+.form__input:focus {
   box-shadow: 0 6px 12px rgb(0 0 0 / 15%);
   transform: translateY(-2px);
 }
 
-input::placeholder {
+.form__input::placeholder {
   font-weight: 400;
   color: #aaa;
 }
 
-.arrow {
+.form__input:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+.form__arrow {
   font-size: 2rem;
   color: white;
   text-align: center;
   opacity: 0.7;
 }
 
-button {
+.form__button {
   width: 100%;
   padding: 1rem 2rem;
   font-size: 1.125rem;
@@ -114,43 +152,21 @@ button {
   transition: all 0.3s ease;
 }
 
-button:hover {
+.form__button:hover {
   box-shadow: 0 6px 20px rgb(102 126 234 / 50%);
   transform: translateY(-2px);
 }
 
-button:active {
+.form__button:active {
   transform: translateY(0);
 }
 
-small {
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: rgb(255 255 255 / 80%);
-  text-align: center;
+.form__button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
 }
 
-.result {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 80px;
-  padding: 1.5rem;
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-  text-align: center;
-  background: rgb(255 255 255 / 10%);
-  border: 2px solid rgb(255 255 255 / 20%);
-  border-radius: 12px;
-  animation: fadeIn 0.5s ease;
-}
-
-.result:empty {
-  display: none;
-}
-
+/* ANIMATIONS */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -163,20 +179,36 @@ small {
   }
 }
 
+/* MEDIA QUERIES - RESPONSIVE */
 @media (width <= 640px) {
-  h1 {
+  .header__h1 {
     font-size: 1.75rem;
   }
 
-  main {
+  .main {
     padding: 2rem 1.5rem;
   }
 
-  input {
+  .form__input {
     font-size: 1.25rem;
   }
 
-  .result {
+  .main__result {
     font-size: 1.5rem;
+  }
+}
+
+/* MEDIA QUERIES - ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .form__input:focus,
+  .form__button:hover,
+  .form__button:active {
+    transform: none !important;
   }
 }
