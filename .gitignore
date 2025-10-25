@@ -23,3 +23,8 @@ Thumbs.db
 
 # Optional: environment variables
 .env
+
+# Configuration files
+.stylelintrc.json
+package.json
+package-lock.json
