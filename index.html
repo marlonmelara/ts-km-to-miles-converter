@@ -7,6 +7,7 @@
       name="description"
       content="Conversor de kilómetros a millas - Herramienta simple para convertir distancias"
     />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Conversor de Kilómetros a Millas</title>
   </head>
   <body>
@@ -16,23 +17,26 @@
 
     <main>
       <form id="fileForm">
-        <label for="kmInput">Kilómetros</label>
-        <input
-          id="kmInput"
-          type="number"
-          min="0"
-          step="0.1"
-          placeholder="Escribe una cantidad"
-          required
-        />
+        <div class="input-group">
+          <label for="kmInput">Kilómetros</label>
+          <input
+            id="kmInput"
+            type="number"
+            min="0"
+            step="0.1"
+            placeholder="Ingresa la distancia"
+            required
+          />
+        </div>
 
-        <label for="kmInput">A millas</label>
+        <div class="arrow">↓</div>
 
-        <button type="submit">Calcular</button>
+        <button type="submit">Convertir a Millas</button>
       </form>
 
-      <small>1 kilómetro es igual a 0.621371 millas</small>
-      <div class="validator__result" id="resultOutput"></div>
+      <small>1 kilómetro = 0.621371 millas</small>
+
+      <div class="result" id="resultOutput"></div>
     </main>
 
     <script src="/dist/main.js"></script>
